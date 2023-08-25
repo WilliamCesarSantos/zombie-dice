@@ -1,0 +1,1 @@
+Bem vindo ao Zombie-dice. Melhor começar a correr!!!

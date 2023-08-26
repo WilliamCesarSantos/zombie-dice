@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class Bowl {
 
-    private List dice = new ArrayList();
+    private List<Die> dice = new ArrayList<Die>();
 
     public Bowl() {}
 
@@ -17,9 +17,9 @@ public class Bowl {
         dice.add(die);
     }
 
-    public List pickDice(Integer amount) {
+    public List<Die> pickDice(Integer amount) {
         Collections.shuffle(dice);
-        List buffer = new ArrayList();
+        List<Die> buffer = new ArrayList();
         for (int index = 0; index < amount; index++) {
             buffer.add(dice.remove(0));
         }

@@ -2,7 +2,7 @@ package br.btg.zombiedice.model;
 
 public class YellowDie extends Die{
 
-    protected YellowDie() {
+    public YellowDie() {
         super(
                 new DieValue[]{
                         DieValue.SHOOT,

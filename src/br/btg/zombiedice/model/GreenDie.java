@@ -2,7 +2,7 @@ package br.btg.zombiedice.model;
 
 public class GreenDie extends Die {
 
-    protected GreenDie() {
+    public GreenDie() {
         super(
                 new DieValue[]{
                         DieValue.BRAIN,

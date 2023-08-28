@@ -16,7 +16,12 @@ public class Round {
     }
 
     public void play(Bowl bowl) {
-
+        List<Pair<Die, DieValue>> diceRolled = player.play(bowl);
+        for (Pair<Die, DieValue> pair : diceRolled) {
+            dices.add(pair.getKey());
+        }
+        //Checar se o zombie pode jogar novamente.
+        //Para isso ele não deve ter levado 3 tiros ou mais
     }
 
 }

@@ -23,7 +23,8 @@ public class Main {
         bowl.put(new YellowDie());
 
         Zombie william = new Zombie("William");
-        william.play(bowl);
+        Round round = new Round(william);
+        round.play(bowl);
     }
 
 }

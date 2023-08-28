@@ -9,19 +9,27 @@ import java.util.List;
 public class Round {
 
     private List<Die> dices = new ArrayList<>();
-    private Zombie player;
+    private Zombie zombie;
 
-    public Round(Zombie player) {
-        this.player = player;
+    public Round(Zombie zombie) {
+        this.zombie = zombie;
     }
 
     public void play(Bowl bowl) {
-        List<Pair<Die, DieValue>> diceRolled = player.play(bowl);
-        for (Pair<Die, DieValue> pair : diceRolled) {
-            dices.add(pair.getKey());
+        List<Pair<Die, DieValue>> diceRolled = zombie.play(bowl);
+        for (Pair<Die, DieValue> dieRolled : diceRolled) {
+            dices.add(dieRolled.getKey());
+            if (dieRolled.getValue() == DieValue.BRAIN) {
+
+            } else if (dieRolled.getValue() == DieValue.SHOOT) {
+                zombie.targeted();
+            } else {
+
+            }
         }
-        //Checar se o zombie pode jogar novamente.
-        //Para isso ele não deve ter levado 3 tiros ou mais
+        if (zombie.getShootCount() < 3) {
+            play(bowl);
+        }
     }
 
 }

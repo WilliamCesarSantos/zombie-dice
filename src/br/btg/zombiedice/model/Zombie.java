@@ -1,5 +1,6 @@
 package br.btg.zombiedice.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -27,12 +28,15 @@ public class Zombie {
         return shootCount;
     }
 
-    public void play(Bowl bowl) {
-        List<Die> dice = bowl.pickDice(3);
+    public List<Pair<Die, DieValue>> play(Bowl bowl) {
+        List<Die> dice = bowl.pickDice(Game.AMOUNT_DICE_TO_PLAY);
+        List<Pair<Die, DieValue>> used = new ArrayList<>();
         for (Die die : dice) {
             DieValue dieSide = die.roll();
             System.out.println(name + ", o valor sorteado foi: " + dieSide);
+            used.add(new Pair<Die, DieValue>(die, dieSide));
         }
+        return used;
     }
 
 }

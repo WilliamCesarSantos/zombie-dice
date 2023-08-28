@@ -5,4 +5,7 @@ package br.btg.zombiedice.model;
  */
 public class Game {
 
+    //Constante
+    public static final Integer AMOUNT_DICE_TO_PLAY = 3;
+
 }

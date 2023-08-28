@@ -25,6 +25,7 @@ public class Main {
         Zombie william = new Zombie("William");
         Round round = new Round(william);
         round.play(bowl);
+        System.out.println("Finalizado o jogo, você ganhou!");
     }
 
 }

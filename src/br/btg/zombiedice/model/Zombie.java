@@ -35,8 +35,15 @@ public class Zombie {
         shootCount += 1;
     }
 
-    public List<Pair<Die, DieValue>> play(Bowl bowl) {
-        List<Die> dice = bowl.pickDice(Game.AMOUNT_DICE_TO_PLAY);
+    public void gotBrain() {
+        brainCount += 1;
+    }
+
+    public List<Pair<Die, DieValue>> play(Bowl bowl, List<Die> runners) {
+        // Peguei todos os dados que preciso para jogar
+        List<Die> dice = bowl.pickDice(Game.AMOUNT_DICE_TO_PLAY - runners.size());
+        dice.addAll(runners);
+
         List<Pair<Die, DieValue>> used = new ArrayList<>();
         for (Die die : dice) {
             DieValue dieSide = die.roll();

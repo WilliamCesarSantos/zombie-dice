@@ -53,4 +53,8 @@ public class Zombie {
         return used;
     }
 
+    public void consolidate(Round round) {
+
+    }
+
 }

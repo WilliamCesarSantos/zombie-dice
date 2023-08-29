@@ -2,6 +2,7 @@ package br.btg.zombiedice;
 
 import br.btg.zombiedice.model.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -21,11 +22,18 @@ public class Main {
         bowl.put(new RedDie());
         bowl.put(new GreenDie());
         bowl.put(new YellowDie());
+        bowl.put(new GreenDie());
+        bowl.put(new RedDie());
 
-        Zombie william = new Zombie("William");
-        Round round = new Round(william);
-        round.play(bowl);
-        System.out.println("Finalizado o jogo, você ganhou!");
+        Zombie beatriz = new Zombie("Beatriz");
+        Zombie camila = new Zombie("Camila");
+        Zombie feliciane = new Zombie("Feliciane");
+        Zombie thais = new Zombie("Thais");
+        Zombie carol = new Zombie("Carol");
+        Zombie jessica = new Zombie("Jessica");
+        Game game = new Game(bowl, Arrays.asList(
+                beatriz, camila, feliciane, thais, carol, jessica
+        ));
+        game.start();
     }
-
 }

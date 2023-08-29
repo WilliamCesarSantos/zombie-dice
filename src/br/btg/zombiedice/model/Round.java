@@ -34,6 +34,9 @@ public class Round {
             play(bowl);
         } else {
             zombie.consolidate(this);
+            for (Pair<Die, DieValue> dieRolled : dices) {
+                bowl.put(dieRolled.getKey());
+            }
         }
     }
 

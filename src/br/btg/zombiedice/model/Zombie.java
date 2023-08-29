@@ -54,7 +54,10 @@ public class Zombie {
     }
 
     public void consolidate(Round round) {
-
+        if (shootCount >= 3) {
+            brainCount = brainCount - round.getBrainAccount();
+        }
+        shootCount = 0;
     }
 
 }

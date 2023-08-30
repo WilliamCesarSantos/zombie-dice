@@ -1,4 +1,4 @@
-package br.btg.zombiedice.model;
+package br.btg.zombiedice.model.die;
 
 public class RedDie extends Die {
 

@@ -1,4 +1,4 @@
-package br.btg.zombiedice.model;
+package br.btg.zombiedice.model.common;
 
 import java.util.Map;
 

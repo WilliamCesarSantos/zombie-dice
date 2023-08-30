@@ -1,15 +1,43 @@
 package br.btg.zombiedice;
 
-import br.btg.zombiedice.model.*;
+import br.btg.zombiedice.model.bowl.Bowl;
+import br.btg.zombiedice.model.die.GreenDie;
+import br.btg.zombiedice.model.die.RedDie;
+import br.btg.zombiedice.model.die.YellowDie;
+import br.btg.zombiedice.model.game.Game;
+import br.btg.zombiedice.model.zombie.Zombie;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        System.out.println("Bem vindo ao Zombie-dice, corra enquanto pode!");
+        Main init = new Main();
+        List<Zombie> zombies = init.registerUsers();
+        Bowl bowl = init.createBowl();
+        Game game = new Game(bowl, zombies);
+        game.start();
+        System.out.println("Finalizando o jogo, até a próxima!");
+    }
 
+    public List<Zombie> registerUsers() {
+        List<Zombie> zombies = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+        String value = "n";
+        do {
+            System.out.println("Informe o nome do jogador.");
+            String name = scanner.nextLine();
+            zombies.add(new Zombie(name));
+            System.out.println("Deseja cadastrar um novo jogador(s/n)?");
+            value = scanner.nextLine();
+        } while (value.equalsIgnoreCase("s"));
+        return zombies;
+    }
+
+    public Bowl createBowl() {
         Bowl bowl = new Bowl();
         bowl.put(new GreenDie());
         bowl.put(new YellowDie());
@@ -24,16 +52,7 @@ public class Main {
         bowl.put(new YellowDie());
         bowl.put(new GreenDie());
         bowl.put(new RedDie());
-
-        Zombie beatriz = new Zombie("Beatriz");
-        Zombie camila = new Zombie("Camila");
-        Zombie feliciane = new Zombie("Feliciane");
-        Zombie thais = new Zombie("Thais");
-        Zombie carol = new Zombie("Carol");
-        Zombie jessica = new Zombie("Jessica");
-        Game game = new Game(bowl, Arrays.asList(
-                beatriz, camila, feliciane, thais, carol, jessica
-        ));
-        game.start();
+        return bowl;
     }
+
 }

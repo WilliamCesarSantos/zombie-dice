@@ -1,6 +1,9 @@
-package br.btg.zombiedice.model;
+package br.btg.zombiedice.model.game;
 
-import javax.sound.midi.Soundbank;
+import br.btg.zombiedice.model.bowl.Bowl;
+import br.btg.zombiedice.model.round.Round;
+import br.btg.zombiedice.model.zombie.Zombie;
+
 import java.util.List;
 
 /**
@@ -10,6 +13,7 @@ public class Game {
 
     //Constante
     public static final Integer AMOUNT_DICE_TO_PLAY = 3;
+    private static final Integer AMOUNT_BRAIN_TO_WIN = 13;
 
     private Bowl bowl;
     private List<Zombie> zombies;
@@ -25,20 +29,22 @@ public class Game {
     }
 
     public void start() {
-        System.out.println("Bem vindo ao Zombie-Dice, corra enquanto pode!!");
         for (zombieIndex = 0; zombieIndex < zombies.size(); zombieIndex++) {
             Zombie zombiePlaying = zombies.get(zombieIndex);
             System.out.println(zombiePlaying.getName() + " sua vez de jogar, prepara-se!");
-            Round round = new Round(zombiePlaying);
+            Round round = new Round(zombiePlaying, this);
             round.play(bowl);
-            if (zombiePlaying.getBrainCount() >= 13) {
-                //Encerra a execução do programa
-                System.exit(0);
+            if (win(zombiePlaying)) {
+                break;
             } else if (zombieIndex == zombies.size() - 1) {
                 //Chegamos ao final da lista, reinicia o loop
                 zombieIndex = -1;
             }
         }
+    }
+
+    public Boolean win(Zombie zombie) {
+        return zombie.getBrainCount() >= AMOUNT_BRAIN_TO_WIN;
     }
 
 }

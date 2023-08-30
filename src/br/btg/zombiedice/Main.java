@@ -6,10 +6,12 @@ import br.btg.zombiedice.model.die.RedDie;
 import br.btg.zombiedice.model.die.YellowDie;
 import br.btg.zombiedice.model.game.Game;
 import br.btg.zombiedice.model.zombie.IronZombie;
+import br.btg.zombiedice.model.zombie.UnluckyZombie;
 import br.btg.zombiedice.model.zombie.Zombie;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -31,7 +33,14 @@ public class Main {
         do {
             System.out.println("Informe o nome do jogador.");
             String name = scanner.nextLine();
-            zombies.add(new IronZombie(name));
+            Boolean isPar = new Random().nextInt() / 2 == 0;
+            if (isPar) {
+                System.out.println("Vai jogar com o Zombie de ferro");
+                zombies.add(new IronZombie(name));
+            }else {
+                System.out.println("Vai jogar com o Zombie azarado");
+                zombies.add(new UnluckyZombie(name));
+            }
             System.out.println("Deseja cadastrar um novo jogador(s/n)?");
             value = scanner.nextLine();
         } while (value.equalsIgnoreCase("s"));

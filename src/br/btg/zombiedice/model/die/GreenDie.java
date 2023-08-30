@@ -7,7 +7,7 @@ public class GreenDie extends Die {
                 new DieValue[]{
                         DieValue.BRAIN,
                         DieValue.RUNNER,
-                        DieValue.SHOOT,
+                        DieValue.SHOT,
                         DieValue.BRAIN,
                         DieValue.RUNNER,
                         DieValue.BRAIN

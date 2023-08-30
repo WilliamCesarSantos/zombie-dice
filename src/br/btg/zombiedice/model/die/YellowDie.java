@@ -5,10 +5,10 @@ public class YellowDie extends Die{
     public YellowDie() {
         super(
                 new DieValue[]{
-                        DieValue.SHOOT,
+                        DieValue.SHOT,
                         DieValue.RUNNER,
                         DieValue.BRAIN,
-                        DieValue.SHOOT,
+                        DieValue.SHOT,
                         DieValue.RUNNER,
                         DieValue.BRAIN
                 }

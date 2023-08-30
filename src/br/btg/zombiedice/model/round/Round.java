@@ -62,10 +62,7 @@ public class Round {
             keepPlaying = false;
         } else {
             showInformation();
-            System.out.println("Deseja jogar novamente(s/n)?");
-            Scanner scanner = new Scanner(System.in);
-            String userOption = scanner.nextLine();
-            keepPlaying = userOption.equalsIgnoreCase("s");
+            keepPlaying = playAgain();
         }
         return keepPlaying;
     }

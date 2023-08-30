@@ -5,12 +5,12 @@ public class RedDie extends Die {
     public RedDie() {
         super(
                 new DieValue[]{
-                        DieValue.SHOOT,
+                        DieValue.SHOT,
                         DieValue.RUNNER,
                         DieValue.BRAIN,
-                        DieValue.SHOOT,
+                        DieValue.SHOT,
                         DieValue.RUNNER,
-                        DieValue.SHOOT
+                        DieValue.SHOT
                 }
         );
     }

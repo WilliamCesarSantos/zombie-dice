@@ -65,7 +65,7 @@ public class Zombie {
         if (dieValue == DieValue.BRAIN) {
             dices.add(die);
             brainCount += 1;
-        } else if (dieValue == DieValue.SHOOT) {
+        } else if (dieValue == DieValue.SHOT) {
             dices.add(die);
             shotCount += 1;
         } else {

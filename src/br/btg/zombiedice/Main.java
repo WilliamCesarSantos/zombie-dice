@@ -5,6 +5,7 @@ import br.btg.zombiedice.model.die.GreenDie;
 import br.btg.zombiedice.model.die.RedDie;
 import br.btg.zombiedice.model.die.YellowDie;
 import br.btg.zombiedice.model.game.Game;
+import br.btg.zombiedice.model.zombie.IronZombie;
 import br.btg.zombiedice.model.zombie.Zombie;
 
 import java.util.ArrayList;
@@ -30,7 +31,7 @@ public class Main {
         do {
             System.out.println("Informe o nome do jogador.");
             String name = scanner.nextLine();
-            zombies.add(new Zombie(name));
+            zombies.add(new IronZombie(name));
             System.out.println("Deseja cadastrar um novo jogador(s/n)?");
             value = scanner.nextLine();
         } while (value.equalsIgnoreCase("s"));

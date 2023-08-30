@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Representação do jogador
  */
-public class Zombie {
+public abstract class Zombie {
 
     private String name;
     protected Integer brainCount = 0;
@@ -61,17 +61,7 @@ public class Zombie {
         dices.clear();
     }
 
-    protected void countDie(Die die, DieValue dieValue) {
-        if (dieValue == DieValue.BRAIN) {
-            dices.add(die);
-            brainCount += 1;
-        } else if (dieValue == DieValue.SHOT) {
-            dices.add(die);
-            shotCount += 1;
-        } else {
-            runners.add(die);
-        }
-    }
+    protected abstract void countDie(Die die, DieValue dieValue);
 
     public boolean isLive() {
         return shotCount < Round.SHOT_LIMIT;
